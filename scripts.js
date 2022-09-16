@@ -8,11 +8,13 @@ const moves_paragraph=document.getElementById('moves_paragraph');
 const score_paragraph=document.getElementById('score_paragraph');
 
 const c_url="images/c_logo.png";
-const c_java="images/c_logo.png";
-const c_python="images/c_logo.png";
+const java_url="images/java_logo.png";
+const python_url="images/python_logo.png";
+const question_mark_url="images/question_mark.jpg";
 let moves=0;
 let score=0;
 let array=[];
+let array_images_url=[];
 const initializeArray = ()=>{
     let counter1=2;
     let counter2=2;
@@ -45,9 +47,20 @@ const initializeArray = ()=>{
             }
         }
     }
+    for(let i=0;i<6;i++){
+        if(array[i]==1){
+            array_images_url[i]=c_url;
+        }else if(array[i]==2){
+            array_images_url[i]=java_url;
+        } else {
+            array_images_url[i]=python_url;
+        }
+    }
 }
 
+const checkDuplicateImage = () =>{
 
+}
 
 
 
@@ -55,7 +68,7 @@ const increaseMoves = () =>{
     moves++;
     moves_paragraph.innerText=`Moves: ${moves}`;
     if(moves%2==0){
-        console.log('we have to check');
+        checkDuplicateImage();
     }
 }
 const increaseScore = () =>{
@@ -69,34 +82,54 @@ const decreaseScore = () =>{
     score_paragraph.innerText = `Score: ${score}`;
 }
 
-// let function1 = ()=>{
-//     if(image_1.src.match('images/question_mark.jpg')){
-//         image_1.src="images/c_logo.png";
-//     }else{
-//         image_1.src="images/question_mark.jpg";
-//     }
-
-// }
-
-
 
 image_1.addEventListener('click',function(){
     increaseMoves();
+    if(image_1.src.match(question_mark_url)){
+        image_1.src=array_images_url[0];
+    }else{
+        image_1.src=question_mark_url;
+    }
 });
 image_2.addEventListener('click',function(){
     increaseMoves();
+    if(image_2.src.match(question_mark_url)){
+        image_2.src=array_images_url[1];
+    }else{
+        image_2.src=question_mark_url;
+    }
 });
 image_3.addEventListener('click',function(){
     increaseMoves();
+    if(image_3.src.match(question_mark_url)){
+        image_3.src=array_images_url[2];
+    }else{
+        image_3.src=question_mark_url;
+    }
 });
 image_4.addEventListener('click',function(){
     increaseMoves();
+    if(image_4.src.match(question_mark_url)){
+        image_4.src=array_images_url[3];
+    }else{
+        image_4.src=question_mark_url;
+    }
 });
 image_5.addEventListener('click',function(){
     increaseMoves();
+    if(image_5.src.match(question_mark_url)){
+        image_5.src=array_images_url[4];
+    }else{
+        image_5.src=question_mark_url;
+    }
 });
 image_6.addEventListener('click',function(){
     increaseMoves();
+    if(image_6.src.match(question_mark_url)){
+        image_6.src=array_images_url[5];
+    }else{
+        image_6.src=question_mark_url;
+    }
 });
 initializeArray();
 
