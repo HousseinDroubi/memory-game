@@ -74,4 +74,8 @@ img {
     border-color: white;
     height: 3vw;
     width: 10vw;
+    transition: 0.2s;
+}
+.btn-reset:active{
+    transform: scale(0.4);
 }

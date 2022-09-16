@@ -6,6 +6,7 @@ const image_5=document.getElementById('image_5');
 const image_6=document.getElementById('image_6');
 const moves_paragraph=document.getElementById('moves_paragraph');
 const score_paragraph=document.getElementById('score_paragraph');
+const button_reset=document.getElementById('button_reset');
 
 const c_url="images/c_logo.png";
 const java_url="images/java_logo.png";
@@ -17,6 +18,7 @@ let moves=0;
 let score=0;
 let array=[];
 let array_images_url=[];
+let attempt=0;
 const initializeArray = ()=>{
     let counter1=2;
     let counter2=2;
@@ -61,16 +63,45 @@ const initializeArray = ()=>{
     }
     
 }
-
+const increaseScore = () =>{
+    score+=10;
+    score_paragraph.innerText = `Score: ${score}`;
+}
+const decreaseScore = () =>{
+    score-=5;
+    if(score<0)
+        score=0;
+    score_paragraph.innerText = `Score: ${score}`;
+}
 const checkDuplicateImages = () =>{
-    console.log(first_image);
-    console.log(Last_image);
-    // if(first_image.src.match(Last_image.src)){
-    //     console.log("same");
-    // }
-    // else{
-    //     console.log("not smae");
-    // }
+    // console.log(first_image);
+    // console.log(Last_image);
+    if(first_image.src.match(Last_image.src) && (!first_image.src.match(question_mark_url)|| !Last_image.src.match(question_mark_url))){
+        increaseScore();
+        first_image.style.visibility = "hidden";
+        Last_image.style.visibility = "hidden";
+        attempt++;
+        if(attempt==3){
+            image_1.src=question_mark_url;
+            image_2.src=question_mark_url;
+            image_3.src=question_mark_url;
+            image_4.src=question_mark_url;
+            image_5.src=question_mark_url;
+            image_6.src=question_mark_url;
+            
+            image_1.style.visibility = "visible";
+            image_2.style.visibility = "visible";
+            image_3.style.visibility = "visible";
+            image_4.style.visibility = "visible";
+            image_5.style.visibility = "visible";
+            image_6.style.visibility = "visible";
+        }
+    }
+    else{
+        decreaseScore();
+        first_image.src=question_mark_url;
+        Last_image.src=question_mark_url;
+    }
 }
 
 const increaseMoves = (image) =>{
@@ -86,16 +117,7 @@ const increaseMoves = (image) =>{
     }
     // console.log(image);
 }
-const increaseScore = () =>{
-    score+=10;
-    score_paragraph.innerText = `Score: ${score}`;
-}
-const decreaseScore = () =>{
-    score-=10;
-    if(score<0)
-        score=0;
-    score_paragraph.innerText = `Score: ${score}`;
-}
+
 
 
 image_1.addEventListener('click',function(){
@@ -147,5 +169,27 @@ image_6.addEventListener('click',function(){
     increaseMoves(image_6);
 });
 initializeArray();
+const resetGame=()=>{
+    image_1.src=question_mark_url;
+    image_2.src=question_mark_url;
+    image_3.src=question_mark_url;
+    image_4.src=question_mark_url;
+    image_5.src=question_mark_url;
+    image_6.src=question_mark_url;
+    
+    image_1.style.visibility = "visible";
+    image_2.style.visibility = "visible";
+    image_3.style.visibility = "visible";
+    image_4.style.visibility = "visible";
+    image_5.style.visibility = "visible";
+    image_6.style.visibility = "visible";
+    attempt=0;
+    score=0;
+    moves=0;
+    initializeArray();
+    array=[];
+    array_images_url=[];
+}
+button_reset.addEventListener('click',resetGame);
 
 
