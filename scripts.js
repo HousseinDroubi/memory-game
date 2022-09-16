@@ -65,7 +65,6 @@ const initializeArray = ()=>{
         } else {
             array_images_url[i]=python_url;
         }
-        console.log(array[i]);
     }
     
 }
