@@ -33,9 +33,12 @@ img {
 }
 /* Hero details */
 .hero-details{
-    width: 50%;
+    width: 100%;
     display: grid;
     align-content: center;
+    align-items: start;
+    justify-content: center;
+    text-align: center;
     row-gap: 2px;
 }
 .hero-details > p{
@@ -48,11 +51,22 @@ img {
     row-gap: 2px;
     width: 100%;
     justify-content: center;
-    align-content: center;
+    align-content: start;
 }
 .hero-images img{
     cursor: pointer;
     width: 10vw;
     height: 10vw;
     border-style: solid;
+}
+.btn-reset{
+    margin-top: 2vw;
+    border-style: none;
+    background-color: #f9c02b;
+    border-radius: 5%;
+    color: white;
+    border-style: solid;
+    border-color: white;
+    height: 3vw;
+    width: 10vw;
 }
