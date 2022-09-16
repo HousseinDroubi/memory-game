@@ -58,7 +58,12 @@ img {
     width: 10vw;
     height: 10vw;
     border-style: solid;
+    transition: 0.2s;
 }
+.hero-images img:active{
+    transform: scale(0.4);
+}
+
 .btn-reset{
     margin-top: 2vw;
     border-style: none;
