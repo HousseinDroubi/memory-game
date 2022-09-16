@@ -11,8 +11,15 @@ img {
 }
 /* Hero */
 .hero{
+    height: 100vh;
+    background-image: url("../images/background-image.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
     display: grid;
-    grid-template-rows: 8vw 6vw auto;
+    grid-template-rows: 8vw auto auto;
     row-gap: 10px;
 }
 /* Nav bar */
@@ -28,23 +35,20 @@ img {
 .hero-details{
     width: 50%;
     display: grid;
-    justify-content: center;
     align-content: center;
     row-gap: 2px;
 }
 .hero-details > p{
-    align-self: start;
     font-size: 2vw;
-    font-weight: bolder;
+    font-weight: bolder;    
 }
 /* Hero images */
 .hero-images{
     display: grid;
-    width: 50%;
     row-gap: 2px;
-    column-gap: 2px;
     width: 100%;
     justify-content: center;
+    align-content: center;
 }
 .hero-images img{
     cursor: pointer;
@@ -52,4 +56,3 @@ img {
     height: 10vw;
     border-style: solid;
 }
-/* Utilises */
